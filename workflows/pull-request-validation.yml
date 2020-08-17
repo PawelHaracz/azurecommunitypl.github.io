@@ -1,0 +1,16 @@
+on:
+  pull_request:
+    branches:
+      - master
+jobs:
+  validate_creator_pr_email:
+     runs-on: ubuntu-latest
+     name: Validate a pr creator email 
+     strategy:
+      matrix:
+        python-version: [3.8]
+     steps:
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
